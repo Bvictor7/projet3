@@ -15,15 +15,19 @@ let cartes = [
 
 const containerCard = document.getElementById("containerCard");
 
-let carteRetourne1 ;
+let carteRetourne1 = null ;
 
-let carteRetourne2 ;
+let carteRetourne2 = null ;
+
+let objCarte1;
+
+let objCarte2;
 
 cartes.sort(() => Math.random() - 0.5);
 
 
 cartes.forEach(carte => {
-    containerCard.innerHTML += `<div class="une-card" carteid="${carte.id}">
+    containerCard.innerHTML += `<div class="une-card" id="${carte.id}">
               <div class="une-card-inter">
                 <div class="une-card-devant">
                     <p class="?">?</p>
@@ -39,7 +43,25 @@ const allCards = document.querySelectorAll(".une-card");
 
 allCards.forEach(card => {
     card.addEventListener("click", () => {
-        console.log(this);
+        let maCarte = document.getElementById(card.getAttribute("id"));
+        if (!carteRetourne1) {
+            carteRetourne1 = maCarte;
+            objCarte1 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
+            
+        } else {
+            carteRetourne2 = maCarte;
+            objCarte2 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
+            
+            if (objCarte1.nom === objCarte2.nom) {
+                console.log("réussite");
+                
+            } else {
+                console.log("raté");
+            }
+            carteRetourne1 = null;
+            carteRetourne2 = null;
+        }
+
         
     })
 });
