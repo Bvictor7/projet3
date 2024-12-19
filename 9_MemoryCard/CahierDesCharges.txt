@@ -1,0 +1,33 @@
+Jeu de Mémoire
+
+Objectif :
+Développer un jeu où les utilisateurs doivent associer des paires de cartes.
+Indications :
+
+    Création du Plateau :
+        Créez un tableau de 12 cartes (6 paires).
+        Mélangez les cartes aléatoirement avant de les afficher.
+        Indice : Pour mélanger un tableau :
+
+        cartes.sort(() => Math.random() - 0.5);
+
+    Retourner une Carte :
+        Ajoutez une animation pour retourner une carte.
+        Indice : Utilisez CSS avec transform: rotateY(180deg);.
+
+    Correspondances :
+        Si deux cartes ont la même image, elles restent visibles.
+        Sinon, elles se retournent après une pause (utilisez setTimeout).
+
+    Victoire :
+        Quand toutes les paires sont trouvées, affichez un message de victoire.
+        Proposez de rejouer (avec confirm ou un bouton).
+
+Indices :
+
+    Stockage des cartes retournées : Utilisez deux variables pour stocker les cartes sélectionnées.
+    Délai de retournement : Bloquez les clics avec une variable verrouillage.
+    Message de victoire : Affichez une alerte avec :
+
+alert("Bravo ! Vous avez gagné !");
+
