@@ -43,21 +43,25 @@ const allCards = document.querySelectorAll(".une-card");
 
 allCards.forEach(card => {
     card.addEventListener("click", () => {
-        let maCarte = document.getElementById(card.getAttribute("id"));
+        let monId = card.getAttribute("id");
+        let maCarte = document.getElementById(monId);
         if (!carteRetourne1) {
             carteRetourne1 = maCarte;
             objCarte1 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
-            
+            carteRetourne1.classList.add("selected");
         } else {
             carteRetourne2 = maCarte;
             objCarte2 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
             
             if (objCarte1.nom === objCarte2.nom) {
                 console.log("réussite");
-                
+
+                carteRetourne1.classList.add("hidden");
+                carteRetourne2.classList.add("hidden");
             } else {
                 console.log("raté");
             }
+            carteRetourne1.classList.remove("selected");
             carteRetourne1 = null;
             carteRetourne2 = null;
         }
