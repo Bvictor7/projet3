@@ -1,120 +1,63 @@
-body{
-    background-color: rgb(156, 180, 241)
-}
-.title
+h2
 {
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-
-}
-.container-card{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    margin:  0 30px;
-
 }
 
 #car1
 {
     background: red;
     transform: rotateY(0deg) translateZ(75px);
-    grid-column: 1/2;
-    grid-row: 1/2;
 }
 
 #car2
 {
     background: rgb(0, 60, 255);
     transform: rotateY(40deg) translateZ(75px);
-    grid-column: 2/3;
-    grid-row: 1/2;
-
 }
 
 #car3
 {
     background: rgb(0, 255, 21);
     transform: rotateY(80deg) translateZ(75px) ;
-    grid-column: 3/4;
-    grid-row: 1/2;
 }
 
 #car4
 {
     background: rgb(255, 0, 234);
     transform: rotateY(120deg) translateZ(75px); 
-    grid-column: 4/5;
-    grid-row: 1/2;
 }
 
 #car5
 {
     background: rgb(255, 238, 0);
     transform: rotateY(160deg) translateZ(75px);
-    grid-column: 1/2;
-    grid-row: 2/3;
 }
 
 #car6
 {
     background: rgb(47, 0, 255);
-    transform: rotateY(200deg) translateZ(75px);
-    grid-column: 2/3;
-    grid-row: 2/3; 
+    transform: rotateY(200deg) translateZ(75px); 
 }
 
 #car7
 {
     background: rgb(255, 51, 0);
-    transform: rotateY(240deg) translateZ(75px);
-    grid-column: 3/4;
-    grid-row: 2/3; 
+    transform: rotateY(240deg) translateZ(75px); 
 }
 
 #car8
 {
     background: rgb(0, 195, 255);
     transform: rotateY(280deg) translateZ(75px);
-    grid-column: 4/5;
-    grid-row: 2/3;
 }
 
 #car9
 {
     background: rgb(255, 238, 0);
-    transform:  rotateY(320deg) translateZ(75px);
-    grid-column:1/2 ;
-    grid-row: 3/4; 
-}
-#car10
-{
-    background: rgb(255, 238, 0);
-    transform:  rotateY(320deg) translateZ(75px);
-    grid-column: 2/3;
-    grid-row: 3/4; 
-}
-#car11
-{
-    background: rgb(255, 238, 0);
-    transform:  rotateY(320deg) translateZ(75px);
-    grid-column: 3/4; 
-    grid-row: 3/4;
-}
-#car12
-{
-    background: rgb(255, 238, 0);
-    transform:  rotateY(320deg) translateZ(75px);
-    grid-column: 4/5; 
-    grid-row: 3/4;
-}
-.une-card-img{
-    height: 70px;
-    width: 70px;
+    transform:  rotateY(320deg) translateZ(75px); 
 }
 
-/* #content 
+#content 
 {
     position: relative;
     width: 500px;
@@ -139,7 +82,7 @@ body{
 	padding: 15px;
     position: absolute;
     border: 5px outset;
-} */
+}
 
 @keyframes turn
 {
@@ -180,3 +123,4 @@ body{
         left: 110px;
 	}
 }
+
