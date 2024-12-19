@@ -72,13 +72,13 @@ allCards.forEach(card => {
             setTimeout(() => {
                 if (objCarte1.nom === objCarte2.nom) {
                 
-                    eggModal("bien jouée");
+                    eggModal("bien joué");
                     nbReussite++
                     carteRetourne1.classList.add("hidden");
                     carteRetourne2.classList.add("hidden");
                     if (nbReussite>=6) {
                             setTimeout(() => {
-                                if(confirm(`bien jouée! voulez vous rejouer?`)){
+                                if(confirm(`bien joué! voulez vous rejouer?`)){
                                     window.location.reload();
                                 }
                             }, 50);
