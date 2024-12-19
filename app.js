@@ -12,6 +12,9 @@ let cartes = [
     { id: 11, nom: "straw", img: "straw.svg" },
     { id: 12, nom: "straw", img: "straw.svg" }
 ]
+const modal = document.getElementById("modal");
+
+const modalTxt = document.getElementById("textModal");
 
 const containerCard = document.getElementById("containerCard");
 
@@ -22,6 +25,8 @@ let carteRetourne2 = null ;
 let objCarte1;
 
 let objCarte2;
+
+let nbReussite = 0;
 
 cartes.sort(() => Math.random() - 0.5);
 
@@ -48,17 +53,27 @@ allCards.forEach(card => {
         if (!carteRetourne1) {
             carteRetourne1 = maCarte;
             objCarte1 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
-            carteRetourne1.classList.add("selected");
+            carteRetourne1.classList.add("selected", "rotate");
+            
         } else {
             carteRetourne2 = maCarte;
             objCarte2 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
             
             if (objCarte1.nom === objCarte2.nom) {
-                console.log("réussite");
-
+                
+                eggModal("bien jouer");
+                nbReussite++
                 carteRetourne1.classList.add("hidden");
                 carteRetourne2.classList.add("hidden");
+                if (nbReussite>=6) {
+                        setTimeout(() => {
+                            if(confirm(`bien joué! voulez vous rejouer?`)){
+                                window.location.reload();
+                            }
+                        }, 50);
+                }
             } else {
+                eggModal("raté");
                 console.log("raté");
             }
             carteRetourne1.classList.remove("selected");
@@ -69,3 +84,19 @@ allCards.forEach(card => {
         
     })
 });
+
+//fonction qui gere la modal
+function eggModal(msg) {
+    modal.innerText=(msg);
+    modal.classList.remove("open");
+    setTimeout(() => {
+        modal.classList.add("open");
+    }, 50);
+
+};
+
+//detection de la disparition de la modal
+modal.addEventListener("animationend", () => {
+    modal.classList.remove("open");
+});
+
