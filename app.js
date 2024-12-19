@@ -26,6 +26,10 @@ let objCarte1;
 
 let objCarte2;
 
+let maCartedevant1;
+
+let maCartedevant2;
+
 let nbReussite = 0;
 
 cartes.sort(() => Math.random() - 0.5);
@@ -53,32 +57,46 @@ allCards.forEach(card => {
         if (!carteRetourne1) {
             carteRetourne1 = maCarte;
             objCarte1 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
-            carteRetourne1.classList.add("selected", "rotate");
+            carteRetourne1.classList.add("selected");
+            maCartedevant1 = carteRetourne1.getElementsByClassName('une-card-devant').item(0);
+            maCartedevant1.classList.add("rotate");
+            
             
         } else {
             carteRetourne2 = maCarte;
             objCarte2 = cartes.find(({ id }) => id === parseInt(card.getAttribute("id")));
-            
-            if (objCarte1.nom === objCarte2.nom) {
+            maCartedevant2 = carteRetourne2.getElementsByClassName('une-card-devant').item(0);
+            maCartedevant2.classList.add("rotate");
+
+            document.body.classList.add("selected");
+            setTimeout(() => {
+                if (objCarte1.nom === objCarte2.nom) {
                 
-                eggModal("bien jouer");
-                nbReussite++
-                carteRetourne1.classList.add("hidden");
-                carteRetourne2.classList.add("hidden");
-                if (nbReussite>=6) {
-                        setTimeout(() => {
-                            if(confirm(`bien joué! voulez vous rejouer?`)){
-                                window.location.reload();
-                            }
-                        }, 50);
-                }
-            } else {
-                eggModal("raté");
-                console.log("raté");
-            }
-            carteRetourne1.classList.remove("selected");
+                    eggModal("bien jouée");
+                    nbReussite++
+                    carteRetourne1.classList.add("hidden");
+                    carteRetourne2.classList.add("hidden");
+                    if (nbReussite>=6) {
+                            setTimeout(() => {
+                                if(confirm(`bien jouée! voulez vous rejouer?`)){
+                                    window.location.reload();
+                                }
+                            }, 50);
+                    }
+                } else {
+                    eggModal("raté");
+                    console.log("raté");
+                    maCartedevant1.classList.remove("rotate");
+                    maCartedevant2.classList.remove("rotate");
+    
+                }  
+                
+            carteRetourne1.classList.remove("selected", "rotate");
             carteRetourne1 = null;
             carteRetourne2 = null;
+            document.body.classList.remove("selected");
+            }, 1000);
+
         }
 
         
@@ -87,7 +105,7 @@ allCards.forEach(card => {
 
 //fonction qui gere la modal
 function eggModal(msg) {
-    modal.innerText=(msg);
+    modalTxt.innerText=msg;
     modal.classList.remove("open");
     setTimeout(() => {
         modal.classList.add("open");

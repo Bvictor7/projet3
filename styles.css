@@ -27,13 +27,17 @@ body{
     margin:  20px 30px;
     padding: 5px;
     background-color: rgb(194, 194, 193);
+    transform: rotateY(180deg);
 
 }
 
+
 .une-card-inter{
+    position: relative;
     background-color: transparent;
     perspective: 1000px;
-    transform: rotateY(180deg);
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
    
 }
 
@@ -51,28 +55,34 @@ body{
     text-align: center;  
 }
 
+
 .une-card-img{
     height: 70px;
     width: 70px;
 } 
 .rotate{
     transform: rotateY(180deg);
-}
-/* .une-card-devant,
+} 
+.une-card-devant,
 .une-card-derriere {
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-} */
+}
+.une-card-derriere{
+    transform: rotateY(180deg);
+}
 
   /* .return-card{
  
     transform: rotateY(180deg);
   } */
 
-
+/* .une-card{
+   
+} */
 
 
 
@@ -105,6 +115,8 @@ body{
         animation-duration: 5s;
     }
     .textModal{
-        font-size: 5em;
+        font-size: 2em;
         text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
     }
